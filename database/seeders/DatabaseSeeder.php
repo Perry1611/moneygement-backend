@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        Post::factory(10)->create();
 
         // User::create([
         //     'name' => 'Perry Saputra',
@@ -24,15 +24,21 @@ class DatabaseSeeder extends Seeder
         //     'password' => bcrypt('12345')
         // ]);
 
-        Category::create([
-            'name' => 'Primary',
-        ]);
-        Category::create([
-            'name' => 'Bill',
-        ]);
-        Category::create([
-            'name' => 'Miscellaneous',
-        ]);
+        // Category::create([
+        //     'name' => 'Primary',
+        //     'image' => 'category1.jpg',
+        //     'description' => 'Primary cost like food and supplies for daily life',
+        // ]);
+        // Category::create([
+        //     'name' => 'Bill',
+        //     'image' => 'category2.jpg',
+        //     'description' => 'Bill cost like electricity, water, internet, insurance, etc',
+        // ]);
+        // Category::create([
+        //     'name' => 'Miscellaneous',
+        //     'image' => 'category3.jpg',
+        //     'description' => 'Miscellaneous cost like accessories, entertainment, etc',
+        // ]);
 
         // Post::create([
         //     'title' => 'Buying iphone x from dark web',

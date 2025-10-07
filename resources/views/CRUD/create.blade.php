@@ -40,7 +40,8 @@
             <div class="label">
                 <span class="label-text font-bold">Descript it for more detail</span>
             </div>
-            <textarea name="body" id="body" class="textarea textarea-bordered h-24" placeholder="Descript your cost here" required >{{ old('body') }}</textarea>
+            <input id="body" type="hidden" name="body" value="{{ old('body') }}">
+            <trix-editor input="body"></trix-editor>
             @error('body')
             <p class="text-red-500">{{ $message }}</p>
             @enderror
@@ -51,7 +52,7 @@
             <div class="label">
             <span class="label-text font-bold">How much money you spent on it</span>
             </div>
-            <input name="cost" type="text" placeholder="Type here" id="cost" class="input input-bordered w-full max-w-xs" required value="{{ old('cost') }}"/>
+            <input name="cost" type="number" placeholder="Type here" id="cost" class="input input-bordered w-full max-w-xs" required value="{{ old('cost') }}"/>
             @error('cost')
             <p class="text-red-500">{{ $message }}</p>
             @enderror

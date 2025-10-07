@@ -26,7 +26,6 @@ class LoginController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required|max:255',
-            'username' => 'required|min:5|max:255|unique:users',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:5|max:255'
         ]);
@@ -43,7 +42,7 @@ class LoginController extends Controller
             'password' => 'required|min:5'
         ]);
 
-        if(Auth::attempt($credentials)){
+        if(Auth::attempt($credentials)){ //pencocokan
             $request->session()->regenerate();
 
             return redirect()->intended('/dashboard');

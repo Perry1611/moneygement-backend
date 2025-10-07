@@ -4,6 +4,12 @@
 <div class="hero min-h-screen bg-base-200">
     <div class="hero-content flex-col lg:flex-row-reverse">
       <div class="text-center pl-4 lg:text-left">
+        @if(session()->has('loginError'))
+        <div role="alert" class="alert alert-error mb-5">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            <span>{{ session('loginError') }}</span>
+          </div>
+        @endif
         <h1 class="text-4xl font-bold">Register Now!</h1>
         <p class="py-6">Make your money management easier with Moneygement</p>
       </div>
@@ -24,13 +30,6 @@
             </label>
             <input type="text" name="name" placeholder="Your name" class="input input-bordered" id="name" required value="{{ old('name') }}"/>
             @error('name')
-            <p class="text-red-500">{{ $message }}</p>
-            @enderror
-            <label class="label" for="username">
-              <span class="label-text">Username</span>
-            </label>
-            <input type="text" name="username" placeholder="Username" class="input input-bordered" id="username" required value="{{ old('username') }}"/>
-            @error('username')
             <p class="text-red-500">{{ $message }}</p>
             @enderror
           </div>

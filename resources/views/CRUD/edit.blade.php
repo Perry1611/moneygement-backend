@@ -24,9 +24,9 @@
                 <option disabled selected>Pick one</option>
                 @foreach ($categories as $category)
                     @if(old('category_id', $post->category_id) == $category->id)
-                    <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
+                        <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
                     @else
-                    <option value="{{ $category->id }}" >{{ $category->name }}</option>
+                        <option value="{{ $category->id }}" >{{ $category->name }}</option>
                     @endif
                 @endforeach
             </select>
@@ -40,7 +40,8 @@
             <div class="label">
                 <span class="label-text font-bold">Descript it for more detail</span>
             </div>
-            <textarea name="body" id="body" class="textarea textarea-bordered h-24" placeholder="Descript your cost here" required >{{ old('body', $post->body) }}</textarea>
+            <input id="body" type="hidden" name="body" value="{{ old('body', $post->body) }}">
+            <trix-editor input="body"></trix-editor>
             @error('body')
             <p class="text-red-500">{{ $message }}</p>
             @enderror
@@ -51,7 +52,7 @@
             <div class="label">
             <span class="label-text font-bold">How much money you spent on it</span>
             </div>
-            <input name="cost" type="text" placeholder="Type here" id="cost" class="input input-bordered w-full max-w-xs" required value="{{ old('cost', $post->cost) }}"/>
+            <input name="cost" type="number" placeholder="Type here" id="cost" class="input input-bordered w-full max-w-xs" required value="{{ old('cost', $post->cost) }}"/>
             @error('cost')
             <p class="text-red-500">{{ $message }}</p>
             @enderror
